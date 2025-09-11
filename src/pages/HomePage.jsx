@@ -75,7 +75,7 @@ const HomePage = () => {
             <motion.button
               whileHover={{ scale: 1.05, backgroundPosition: "200% center" }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold bg-gradient-to-r from-lime-400 via-green-400 to-lime-500 bg-[length:200%_200%] text-black shadow-md hover:shadow-xl transition-all w-full sm:w-auto"
+              className="px-6 sm:px-8 py-2 sm:py-3 rounded sm:rounded-full font-semibold bg-gradient-to-r from-lime-400 via-green-400 to-lime-500 bg-[length:200%_200%] text-black shadow-md hover:shadow-xl transition-all w-full sm:w-auto"
             >
               Get Started
             </motion.button>
@@ -83,7 +83,7 @@ const HomePage = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold border-2 border-lime-400 text-lime-400 hover:bg-lime-400 hover:text-black transition w-full sm:w-auto"
+              className="px-6 sm:px-8 py-2 sm:py-3 rounded sm:rounded-full font-semibold border-2 border-lime-400 text-lime-400 hover:bg-lime-400 hover:text-black transition w-full sm:w-auto"
             >
               Learn More
             </motion.button>
