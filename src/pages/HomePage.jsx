@@ -11,7 +11,7 @@ const HomePage = () => {
 
   return (
     <div
-      className={`w-full min-h-screen flex flex-col justify-between relative overflow-hidden px-0 ${colors.primary}`}
+      className={`w-full min-h-screen flex flex-col justify-between relative overflow-hidden pt-20 ${colors.primary}`}
     >
       {/* 🌈 Animated Gradient Background Blobs */}
       <motion.div
