@@ -1,80 +1,40 @@
 import { Link } from "react-router-dom";
 import { useTheme } from "../contexts/ThemeContext";
-import { motion } from "framer-motion";
 
 const Register = () => {
-  const { colors, isDarkMode } = useTheme();
+  const { isDarkMode, colors } = useTheme();
 
   return (
     <section
-      className={`min-h-screen flex items-center justify-center px-4 py-10 sm:py-16 ${colors.primary} relative overflow-hidden transition-all duration-500`}
+      className={`min-h-screen flex items-start sm:items-center justify-center px-0 sm:px-6 lg:px-8 pt-20 sm:pt-24 transition-colors duration-500 ${colors.primary}`}
     >
-      {/* 🔮 Animated Gradient Background Blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute -top-1/2 -right-1/2 w-[600px] h-[600px] bg-gradient-to-bl from-lime-400/30 to-transparent rounded-full blur-3xl"
-          animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        />
-        <motion.div
-          className="absolute -bottom-1/2 -left-1/2 w-[500px] h-[500px] bg-gradient-to-tr from-lime-600/20 to-transparent rounded-full blur-3xl"
-          animate={{ scale: [1.2, 1, 1.2], rotate: [360, 180, 0] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        />
-      </div>
-
-      {/* 📦 Card Container */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        whileHover={{ scale: 1.01 }}
-        className="relative z-10 w-full max-w-5xl flex flex-col md:flex-row rounded-3xl shadow-2xl overflow-hidden backdrop-blur-xl border border-white/20 bg-white/5"
-      >
-        {/* 🎨 Left Gradient Panel */}
+      <div className="relative w-full sm:max-w-sm">
         <div
-          className="hidden md:flex flex-col justify-center items-center w-1/2 p-10 text-white relative"
-          style={{
-            background: isDarkMode
-              ? "linear-gradient(135deg, #0B0500 30%, #B0DB43 100%)"
-              : "linear-gradient(135deg, #3b82f6 30%, #60a5fa 100%)",
-            clipPath: "polygon(0 0, 100% 0, 85% 100%, 0% 100%)",
-          }}
+          className={`sm:rounded-3xl p-4 sm:p-10 sm:border transition-colors duration-500
+            ${
+              isDarkMode
+                ? "bg-transparent sm:" + colors.card + " border-slate-700"
+                : "bg-transparent sm:bg-white shadow-none sm:shadow-2xl sm:border-gray-200"
+            }`}
         >
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-4xl font-extrabold mb-4 drop-shadow-lg text-center"
+          <h2
+            className={`text-2xl font-bold mb-4 text-center ${
+              isDarkMode ? "text-white" : "text-black"
+            }`}
           >
-            Welcome Back!
-          </motion.h2>
-          <p className="mb-8 opacity-90 text-center">
-            Already have an account? <br /> Login to continue your journey.
-          </p>
-          <Link
-            to="/login"
-            className="px-8 py-3 border-2 border-white rounded-full font-semibold hover:bg-white hover:text-black transition"
-          >
-            Sign In
-          </Link>
-        </div>
-
-        {/* 📝 Right Form Panel */}
-        <div
-          className={`flex flex-col justify-center w-full md:w-1/2 p-6 sm:p-10 md:p-12 ${colors.card} ${colors.text}`}
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-3">
             Create Account
           </h2>
-          <p className={`text-center mb-8 ${colors.textMuted}`}>
+          <p
+            className={`text-center mb-6 transition-colors duration-500 ${
+              isDarkMode ? colors.textMuted : "text-gray-500"
+            }`}
+          >
             Sign up with your personal details
           </p>
 
-          {/* ✍️ Form */}
-          <form className="flex flex-col gap-5">
+          <form className="flex flex-col gap-4">
             {["Username", "Email", "Password"].map((placeholder, i) => (
-              <motion.input
+              <input
                 key={i}
                 type={
                   placeholder === "Password"
@@ -84,32 +44,56 @@ const Register = () => {
                     : "text"
                 }
                 placeholder={placeholder}
-                whileFocus={{ scale: 1.02, borderColor: "#84cc16" }}
-                className="w-full px-5 py-3 rounded-full border border-slate-300 shadow-sm focus:ring-2 focus:ring-lime-400 outline-none bg-transparent placeholder-gray-400 dark:placeholder-gray-500"
+                className={`w-full px-4 py-2 rounded-md border focus:ring-2 focus:ring-lime-400 outline-none transition-colors duration-300
+                  ${
+                    isDarkMode
+                      ? colors.input + " border-gray-600 placeholder-gray-400"
+                      : "bg-transparent sm:bg-white border-gray-300 text-black placeholder-gray-500"
+                  }`}
               />
             ))}
 
-            <motion.button
-              whileHover={{ scale: 1.05, backgroundPosition: "200% center" }}
-              whileTap={{ scale: 0.95 }}
+            <button
               type="submit"
-              className="w-full py-3 rounded-full font-semibold bg-gradient-to-r from-lime-400 via-lime-500 to-lime-600 bg-[length:200%_200%] text-black shadow-md hover:shadow-xl transition-all"
+              className={`w-full py-2 rounded-md font-semibold shadow-md transition-colors duration-300
+                ${
+                  isDarkMode
+                    ? colors.button
+                    : "bg-gradient-to-r from-lime-400 via-lime-500 to-lime-600 text-black"
+                }`}
             >
               Register
-            </motion.button>
+            </button>
           </form>
 
-          <p className="mt-6 text-center text-sm">
-            Already have an account?{" "}
+          <div className="mt-6 flex justify-center">
             <Link
               to="/login"
-              className="font-semibold underline hover:text-lime-500"
+              className={`flex items-center gap-1 text-sm font-semibold border px-3 py-1 rounded-full transition-colors duration-300
+                ${
+                  isDarkMode
+                    ? "text-lime-300 border-lime-300 hover:text-lime-400 hover:border-lime-400"
+                    : "text-lime-500 border-lime-500 hover:text-lime-600 hover:border-lime-600"
+                }`}
             >
-              Login
+              Already have an account?
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
             </Link>
-          </p>
+          </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
