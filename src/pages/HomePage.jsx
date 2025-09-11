@@ -100,7 +100,7 @@ const HomePage = () => {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 182 186"
-            className="w-[190px] sm:w-[220px] md:w-[260px] lg:w-[300px] h-auto"
+            className="w-[220px] sm:w-[220px] md:w-[260px] lg:w-[300px] h-auto"
             fill="none"
           >
             {" "}
