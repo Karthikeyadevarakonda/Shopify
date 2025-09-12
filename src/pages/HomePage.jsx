@@ -263,7 +263,7 @@ const HomePage = () => {
 
         {/* Footer Bottom */}
         <div className="mt-8 border-t border-gray-700 pt-4 text-center text-sm opacity-70">
-          <p className={`${colors.text}`}>
+          <p className={`${"text-white"}`}>
             &copy; {new Date().getFullYear()} Xeno FDE Store. Built with ❤️ for
             the{" "}
             <span className="font-semibold text-lime-400">
