@@ -103,14 +103,4 @@ const TopCustomersTable = ({ data, loading = false, title = "Top Customers" }) =
   )
 }
 
-// Skeleton component
-const Skeleton = ({ className, ...props }) => {
-  return (
-    <div
-      className={`animate-pulse rounded-md bg-muted ${className}`}
-      {...props}
-    />
-  )
-}
-
 export default TopCustomersTable

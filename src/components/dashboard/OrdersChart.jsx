@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { Skeleton } from '../ui/skeleton'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { formatNumber, formatDate } from '../../lib/utils'
 
 const OrdersChart = ({ data, loading = false, title = "Orders by Date" }) => {
@@ -70,16 +70,6 @@ const OrdersChart = ({ data, loading = false, title = "Orders by Date" }) => {
         </div>
       </CardContent>
     </Card>
-  )
-}
-
-// Skeleton component
-const Skeleton = ({ className, ...props }) => {
-  return (
-    <div
-      className={`animate-pulse rounded-md bg-muted ${className}`}
-      {...props}
-    />
   )
 }
 

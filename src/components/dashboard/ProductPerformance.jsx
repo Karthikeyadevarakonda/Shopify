@@ -128,14 +128,4 @@ const ProductPerformance = ({ data, loading = false, title = "Product Performanc
   )
 }
 
-// Skeleton component
-const Skeleton = ({ className, ...props }) => {
-  return (
-    <div
-      className={`animate-pulse rounded-md bg-muted ${className}`}
-      {...props}
-    />
-  )
-}
-
 export default ProductPerformance

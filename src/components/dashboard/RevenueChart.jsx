@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { Skeleton } from '../ui/skeleton'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { formatCurrency, formatDate } from '../../lib/utils'
 
 const RevenueChart = ({ data, loading = false, title = "Revenue Over Time" }) => {
@@ -73,16 +73,6 @@ const RevenueChart = ({ data, loading = false, title = "Revenue Over Time" }) =>
         </div>
       </CardContent>
     </Card>
-  )
-}
-
-// Skeleton component
-const Skeleton = ({ className, ...props }) => {
-  return (
-    <div
-      className={`animate-pulse rounded-md bg-muted ${className}`}
-      {...props}
-    />
   )
 }
 
