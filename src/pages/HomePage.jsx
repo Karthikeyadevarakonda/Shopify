@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext";
 import Hero from "../assets/Hero.svg";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const { colors, theme } = useTheme();
@@ -78,7 +79,9 @@ const HomePage = () => {
               whileTap={{ scale: 0.95 }}
               className="px-6 sm:px-8 py-2 sm:py-3 rounded sm:rounded-full font-semibold bg-gradient-to-r from-lime-400 via-green-400 to-lime-500 bg-[length:200%_200%] text-black shadow-md hover:shadow-xl transition-all w-full sm:w-auto"
             >
-              Get Started
+              <Link to="/register" className="w-full h-full block text-center">
+                Get Started
+              </Link>
             </motion.button>
 
             <motion.button
@@ -86,7 +89,9 @@ const HomePage = () => {
               whileTap={{ scale: 0.95 }}
               className="px-6 sm:px-8 py-2 sm:py-3 rounded sm:rounded-full font-semibold border-2 border-lime-400 text-lime-400 hover:bg-lime-400 hover:text-black transition w-full sm:w-auto"
             >
-              Learn More
+              <Link to="/learnMore" className="w-full h-full block text-center">
+                Learn More
+              </Link>
             </motion.button>
           </motion.div>
         </div>
@@ -102,13 +107,13 @@ const HomePage = () => {
             src={Hero}
             alt="HERO"
             className="
-    w-[220px]        /* default */
-    sm:w-[220px]     /* small screens */
-    md:w-[260px]     /* medium screens */
-    lg:w-[300px]     /* large screens */
-    xl:w-[320px]     /* extra large screens */
-    2xl:w-[360px]    /* 2xl screens */
-    h-auto           /* keep aspect ratio */
+    w-[220px]        
+    sm:w-[220px]   
+    md:w-[260px]   
+    lg:w-[300px]     
+    xl:w-[320px]    
+    2xl:w-[360px]  
+    h-auto           
     object-cover
   "
           />
