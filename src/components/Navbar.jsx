@@ -55,6 +55,12 @@ const Navbar = () => {
             Home
           </Link>
           <Link
+            to="/dashboard"
+            className={`hover:underline transition-colors duration-300 ${linkColor}`}
+          >
+            Dashboard
+          </Link>
+          <Link
             to="/login"
             className={`hover:underline transition-colors duration-300 ${linkColor}`}
           >
@@ -132,6 +138,14 @@ const Navbar = () => {
                   className="flex items-center gap-3 hover:text-lime-400"
                 >
                   <FiHome /> Home
+                </Link>
+
+                <Link
+                  to="/dashboard"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center gap-3 hover:text-lime-400"
+                >
+                  <FiHome /> Dashboard
                 </Link>
 
                 <Link
