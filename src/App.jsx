@@ -8,6 +8,7 @@ import {
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
+import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import LearnMorePage from "./pages/LearnMorePage";
@@ -19,7 +20,18 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
+<<<<<<< HEAD
         <AppContent />
+=======
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/learnMore" element={<LearnMorePage />} />
+        </Routes>
+>>>>>>> 8640e67cb85e86093f3ba3f8645fc629fd511422
       </Router>
     </ThemeProvider>
   );
