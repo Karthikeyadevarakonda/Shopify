@@ -3,29 +3,32 @@ import { Link } from "react-router-dom";
 import ThemeToggle from "../contexts/ThemeToggle";
 import { useTheme } from "../contexts/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiHome, FiLogIn, FiUserPlus, FiX } from "react-icons/fi";
+import { FiBarChart2, FiHome, FiLogIn, FiUserPlus, FiX } from "react-icons/fi";
 import Logo from "../assets/Logo.svg";
 
 const Navbar = () => {
   const { colors } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
+
+    // Check authentication on mount
+    const tenantData = localStorage.getItem("tenantData");
+    setIsAuthenticated(!!tenantData);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Dynamic colors based on scroll
   const linkColor = scrolled
     ? "text-white/80 hover:text-lime-400"
     : colors.textSecondary;
   const logoColor = scrolled ? "text-white" : colors.text;
   const shadowClass = scrolled ? "shadow-xl" : "shadow-md";
-
   const hamburgerColor = "bg-lime-400";
-
   const navbarBg = scrolled
     ? "bg-gradient-to-r from-gray-900/90 via-gray-800/80 to-gray-900/90 backdrop-blur-md"
     : colors.primary;
@@ -47,6 +50,7 @@ const Navbar = () => {
           <span>Shopify</span>
         </Link>
 
+        {/* Desktop Menu */}
         <div className="hidden md:flex gap-6">
           <Link
             to="/"
@@ -54,21 +58,34 @@ const Navbar = () => {
           >
             Home
           </Link>
-          <Link
-            to="/login"
-            className={`hover:underline transition-colors duration-300 ${linkColor}`}
-          >
-            Login
-          </Link>
-          <Link
-            to="/register"
-            className={`hover:underline transition-colors duration-300 ${linkColor}`}
-          >
-            Register
-          </Link>
+
+          {!isAuthenticated && (
+            <>
+              <Link
+                to="/login"
+                className={`hover:underline transition-colors duration-300 ${linkColor}`}
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className={`hover:underline transition-colors duration-300 ${linkColor}`}
+              >
+                Register
+              </Link>
+            </>
+          )}
+
+          {isAuthenticated && (
+            <Link
+              to="/mainLayout"
+              className={`hover:underline transition-colors duration-300 ${linkColor}`}
+            >
+              Dashboard
+            </Link>
+          )}
         </div>
 
-        {/* Right Side */}
         <div className="flex items-center gap-4">
           <ThemeToggle />
 
@@ -95,8 +112,6 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
-
-      <div />
 
       {/* Mobile Drawer */}
       <AnimatePresence>
@@ -134,20 +149,34 @@ const Navbar = () => {
                   <FiHome /> Home
                 </Link>
 
-                <Link
-                  to="/login"
-                  onClick={() => setMenuOpen(false)}
-                  className="flex items-center gap-3 hover:text-lime-400"
-                >
-                  <FiLogIn /> Login
-                </Link>
-                <Link
-                  to="/register"
-                  onClick={() => setMenuOpen(false)}
-                  className="flex items-center gap-3 hover:text-lime-400"
-                >
-                  <FiUserPlus /> Register
-                </Link>
+                {!isAuthenticated && (
+                  <>
+                    <Link
+                      to="/login"
+                      onClick={() => setMenuOpen(false)}
+                      className="flex items-center gap-3 hover:text-lime-400"
+                    >
+                      <FiLogIn /> Login
+                    </Link>
+                    <Link
+                      to="/register"
+                      onClick={() => setMenuOpen(false)}
+                      className="flex items-center gap-3 hover:text-lime-400"
+                    >
+                      <FiUserPlus /> Register
+                    </Link>
+                  </>
+                )}
+
+                {isAuthenticated && (
+                  <Link
+                    to="/mainLayout"
+                    onClick={() => setMenuOpen(false)}
+                    className="flex items-center gap-3 hover:text-lime-400"
+                  >
+                    <FiBarChart2 /> Dashboard
+                  </Link>
+                )}
               </div>
 
               <div className="mt-auto border-t border-white/20 p-6">
