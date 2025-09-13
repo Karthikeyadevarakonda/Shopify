@@ -122,15 +122,15 @@ const Dashboard = () => {
     <div
       className={`${
         isDarkMode ? "bg-gray-800 text-white" : "bg-gray-100 text-black"
-      } p-4 space-y-6 min-h-screen transition-colors duration-500`}
+      } p-2 sm:p-4 space-y-4 sm:space-y-6 min-h-screen transition-colors duration-500`}
     >
       <Toaster position="top-right" />
 
       {/* Filters & Sync */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4 flex-wrap">
-        <div className="flex gap-2 flex-wrap w-full sm:w-auto items-end">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-3 sm:gap-4 mb-4 flex-wrap">
+        <div className="flex flex-col sm:flex-row gap-2 flex-wrap w-full lg:w-auto items-start sm:items-end">
           <div className="flex flex-col">
-            <label className="text-sm font-medium mb-1">From</label>
+            <label className="text-xs sm:text-sm font-medium mb-1">From</label>
             <input
               type="date"
               value={fromDate}
@@ -139,7 +139,7 @@ const Dashboard = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label className="text-sm font-medium mb-1">To</label>
+            <label className="text-xs sm:text-sm font-medium mb-1">To</label>
             <input
               type="date"
               value={toDate}
@@ -147,85 +147,87 @@ const Dashboard = () => {
               className={inputClasses}
             />
           </div>
-          <button
-            onClick={fetchDashboard}
-            className="bg-lime-500 hover:bg-lime-600 text-white font-medium py-2 px-3 rounded shadow transition text-sm whitespace-nowrap self-end"
-          >
-            Apply
-          </button>
-          <button
-            onClick={handleClearFilter}
-            className="bg-gray-400 hover:bg-gray-500 text-white font-medium py-2 px-3 rounded shadow transition text-sm whitespace-nowrap self-end"
-          >
-            Clear
-          </button>
+          <div className="flex gap-2 w-full sm:w-auto">
+            <button
+              onClick={fetchDashboard}
+              className="bg-lime-500 hover:bg-lime-600 text-white font-medium py-2 px-3 rounded shadow transition text-xs sm:text-sm whitespace-nowrap flex-1 sm:flex-none"
+            >
+              Apply
+            </button>
+            <button
+              onClick={handleClearFilter}
+              className="bg-gray-400 hover:bg-gray-500 text-white font-medium py-2 px-3 rounded shadow transition text-xs sm:text-sm whitespace-nowrap flex-1 sm:flex-none"
+            >
+              Clear
+            </button>
+          </div>
         </div>
 
         <button
           onClick={handleSyncAndRefresh}
           disabled={syncing}
-          className="bg-lime-500 hover:bg-lime-600 text-white font-semibold py-2 px-4 rounded shadow transition whitespace-nowrap"
+          className="bg-lime-500 hover:bg-lime-600 text-white font-semibold py-2 px-3 sm:px-4 rounded shadow transition whitespace-nowrap text-xs sm:text-sm w-full lg:w-auto"
         >
           {syncing ? "Syncing..." : "Sync & Refresh"}
         </button>
       </div>
 
       {/* KPIs */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <div
-          className={`rounded-xl shadow p-4 ${
+          className={`rounded-lg sm:rounded-xl shadow p-3 sm:p-4 ${
             isDarkMode ? "bg-gray-700" : "bg-white"
           }`}
         >
-          <p className="text-sm text-gray-400">Total Revenue</p>
-          <h2 className="text-2xl font-bold">
+          <p className="text-xs sm:text-sm text-gray-400">Total Revenue</p>
+          <h2 className="text-lg sm:text-2xl font-bold">
             ${data.totalRevenue.toFixed(2)}
           </h2>
-          <p className="text-green-500 text-sm">
+          <p className="text-green-500 text-xs sm:text-sm">
             ↑ {data.totalRevenueChangePercent}%
           </p>
         </div>
         <div
-          className={`rounded-xl shadow p-4 ${
+          className={`rounded-lg sm:rounded-xl shadow p-3 sm:p-4 ${
             isDarkMode ? "bg-gray-700" : "bg-white"
           }`}
         >
-          <p className="text-sm text-gray-400">Total Orders</p>
-          <h2 className="text-2xl font-bold">{data.totalOrders}</h2>
-          <p className="text-green-500 text-sm">
+          <p className="text-xs sm:text-sm text-gray-400">Total Orders</p>
+          <h2 className="text-lg sm:text-2xl font-bold">{data.totalOrders}</h2>
+          <p className="text-green-500 text-xs sm:text-sm">
             ↑ {data.totalOrdersChangePercent}%
           </p>
         </div>
         <div
-          className={`rounded-xl shadow p-4 ${
+          className={`rounded-lg sm:rounded-xl shadow p-3 sm:p-4 ${
             isDarkMode ? "bg-gray-700" : "bg-white"
           }`}
         >
-          <p className="text-sm text-gray-400">Total Customers</p>
-          <h2 className="text-2xl font-bold">{data.totalCustomers}</h2>
-          <p className="text-green-500 text-sm">
+          <p className="text-xs sm:text-sm text-gray-400">Total Customers</p>
+          <h2 className="text-lg sm:text-2xl font-bold">{data.totalCustomers}</h2>
+          <p className="text-green-500 text-xs sm:text-sm">
             ↑ {data.totalCustomersChangePercent}%
           </p>
         </div>
         <div
-          className={`rounded-xl shadow p-4 ${
+          className={`rounded-lg sm:rounded-xl shadow p-3 sm:p-4 ${
             isDarkMode ? "bg-gray-700" : "bg-white"
           }`}
         >
-          <p className="text-sm text-gray-400">Products</p>
-          <h2 className="text-2xl font-bold">{data.totalProducts}</h2>
+          <p className="text-xs sm:text-sm text-gray-400">Products</p>
+          <h2 className="text-lg sm:text-2xl font-bold">{data.totalProducts}</h2>
         </div>
       </div>
 
       {/* Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         <div
-          className={`rounded-xl shadow p-4 ${
+          className={`rounded-lg sm:rounded-xl shadow p-3 sm:p-4 ${
             isDarkMode ? "bg-gray-700" : "bg-white"
           }`}
         >
-          <h3 className="text-lg font-semibold mb-4">Revenue Trend</h3>
-          <ResponsiveContainer width="100%" height={250}>
+          <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Revenue Trend</h3>
+          <ResponsiveContainer width="100%" height={200}>
             <LineChart data={revenueTrend}>
               <CartesianGrid
                 strokeDasharray="3 3"
@@ -239,12 +241,12 @@ const Dashboard = () => {
           </ResponsiveContainer>
         </div>
         <div
-          className={`rounded-xl shadow p-4 ${
+          className={`rounded-lg sm:rounded-xl shadow p-3 sm:p-4 ${
             isDarkMode ? "bg-gray-700" : "bg-white"
           }`}
         >
-          <h3 className="text-lg font-semibold mb-4">Orders by Day</h3>
-          <ResponsiveContainer width="100%" height={250}>
+          <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Orders by Day</h3>
+          <ResponsiveContainer width="100%" height={200}>
             <LineChart data={ordersByDay}>
               <CartesianGrid
                 strokeDasharray="3 3"
@@ -260,23 +262,23 @@ const Dashboard = () => {
       </div>
 
       {/* Top Customers & Products */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         <div
-          className={`rounded-xl shadow p-4 ${
+          className={`rounded-lg sm:rounded-xl shadow p-3 sm:p-4 ${
             isDarkMode ? "bg-gray-700" : "bg-white"
           }`}
         >
-          <h3 className="text-lg font-semibold mb-4">Top Customers</h3>
-          <ul className="space-y-3">
+          <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Top Customers</h3>
+          <ul className="space-y-2 sm:space-y-3">
             {data.topCustomers?.map((c) => (
-              <li key={c.customerId} className="flex justify-between">
+              <li key={c.customerId} className="flex justify-between items-start">
                 <div>
-                  <p className="font-medium">{c.name}</p>
-                  <p className="text-sm text-gray-400">{c.email}</p>
+                  <p className="font-medium text-sm sm:text-base truncate max-w-[150px] sm:max-w-none">{c.name}</p>
+                  <p className="text-xs sm:text-sm text-gray-400 truncate max-w-[150px] sm:max-w-none">{c.email}</p>
                 </div>
                 <div className="text-right">
-                  <p className="font-bold">${c.totalSpent.toFixed(2)}</p>
-                  <p className="text-sm text-gray-400">
+                  <p className="font-bold text-sm sm:text-base">${c.totalSpent.toFixed(2)}</p>
+                  <p className="text-xs sm:text-sm text-gray-400">
                     {c.ordersCount} orders
                   </p>
                 </div>
@@ -285,34 +287,34 @@ const Dashboard = () => {
           </ul>
         </div>
         <div
-          className={`rounded-xl shadow p-4 ${
+          className={`rounded-lg sm:rounded-xl shadow p-3 sm:p-4 ${
             isDarkMode ? "bg-gray-700" : "bg-white"
           }`}
         >
-          <h3 className="text-lg font-semibold mb-4">Top Products</h3>
-          <ul className="space-y-3">
+          <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Top Products</h3>
+          <ul className="space-y-2 sm:space-y-3">
             {data.topProducts?.map((p) => (
               <li
                 key={p.productId}
-                className="flex items-center justify-between"
+                className="flex items-center justify-between gap-2"
               >
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
                   <img
                     src={p.imageSrc}
                     alt={p.title}
-                    className="w-10 h-10 rounded object-cover"
+                    className="w-8 h-8 sm:w-10 sm:h-10 rounded object-cover flex-shrink-0"
                   />
-                  <div>
-                    <p className="font-medium">{p.title}</p>
-                    <p className="text-sm text-gray-400">
+                  <div className="min-w-0 flex-1">
+                    <p className="font-medium text-sm sm:text-base truncate">{p.title}</p>
+                    <p className="text-xs sm:text-sm text-gray-400">
                       ${p.unitPrice} |{" "}
                       {p.stock >= 0 ? `${p.stock} in stock` : "∞"}
                     </p>
                   </div>
                 </div>
-                <div className="text-right">
-                  <p className="font-bold">{p.quantitySold} sold</p>
-                  <p className="text-sm text-gray-400">
+                <div className="text-right flex-shrink-0">
+                  <p className="font-bold text-sm sm:text-base">{p.quantitySold} sold</p>
+                  <p className="text-xs sm:text-sm text-gray-400">
                     ${p.revenue.toFixed(2)}
                   </p>
                 </div>

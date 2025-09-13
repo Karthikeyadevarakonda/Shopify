@@ -88,27 +88,27 @@ const MainLayout = () => {
     ) : null;
 
   return (
-    <div className={`min-h-screen flex ${colors.primary} transition-colors`}>
+    <div className={`min-h-screen flex flex-col lg:flex-row ${colors.primary} transition-colors`}>
       <Toaster position="top-right" />
 
       {/* Sidebar */}
       <aside
-        className={`w-64 fixed h-full flex flex-col justify-between shadow-md transition-colors duration-500 ${
+        className={`w-full lg:w-64 lg:fixed lg:h-full flex flex-col justify-between shadow-md transition-colors duration-500 ${
           isDarkMode ? colors.card + " border-r border-gray-700" : "bg-white"
         }`}
       >
         {/* Theme Toggle + Panel Name */}
         {/* Panel Header with Theme Toggle */}
         <div
-          className={`px-4 py-3 flex items-center justify-between border-b ${
+          className={`px-3 sm:px-4 py-3 flex items-center justify-between border-b ${
             isDarkMode ? "border-gray-700" : "border-gray-300"
           }`}
         >
           {/* Panel icon + name */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 sm:gap-2">
             {panelIcon}
             <h2
-              className={`text-lg font-bold ${
+              className={`text-base sm:text-lg font-bold ${
                 isDarkMode ? "text-white" : "text-black"
               }`}
             >
@@ -121,7 +121,7 @@ const MainLayout = () => {
         </div>
 
         {/* Menu Links */}
-        <nav className="flex-1 px-4 py-6 relative">
+        <nav className="flex-1 px-3 sm:px-4 py-4 sm:py-6 relative">
           {/* Sliding underline */}
           <div />
 
@@ -131,7 +131,7 @@ const MainLayout = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`relative flex items-center gap-3 px-3 py-2 rounded-lg font-medium transition-colors duration-500 ease-in-out
+                className={`relative flex items-center gap-2 sm:gap-3 px-2 sm:px-3 py-2 rounded-lg font-medium transition-colors duration-500 ease-in-out text-sm sm:text-base
                   ${
                     isActive
                       ? "bg-lime-400 text-black dark:bg-lime-500 dark:text-white"
@@ -146,21 +146,21 @@ const MainLayout = () => {
 
         {/* Logout */}
         <div
-          className={`p-4 border-t ${
+          className={`p-3 sm:p-4 border-t ${
             isDarkMode ? "border-gray-700" : "border-gray-200"
           }`}
         >
           <button
             onClick={handleLogout}
-            className="flex items-center gap-2 text-sm font-medium text-red-500 hover:text-red-600 transition"
+            className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium text-red-500 hover:text-red-600 transition"
           >
-            <LogOut size={16} /> Logout
+            <LogOut size={14} className="sm:w-4 sm:h-4" /> Logout
           </button>
         </div>
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 ml-64 p-6">
+      <main className="flex-1 lg:ml-64 p-3 sm:p-6">
         <Routes>
           {role === "isTenant" && (
             <Route

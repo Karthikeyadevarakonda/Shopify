@@ -94,11 +94,10 @@ const Register = () => {
 
   return (
     <section
-      className={`min-h-screen flex items-start sm:items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 transition-colors duration-500 ${colors.primary}`}
+      className={`min-h-screen flex items-start sm:items-center justify-center px-3 sm:px-6 lg:px-8 pt-20 sm:pt-16 transition-colors duration-500 ${colors.primary}`}
     >
       <Toaster position="top-right" />
-      <div className="w-full max-w-xl">
-        {/* widened from max-w-md */}
+      <div className="w-full max-w-lg">
         <div
           className={`rounded-xl p-8 border transition-colors duration-500 ${
             isDarkMode
@@ -107,7 +106,7 @@ const Register = () => {
           }`}
         >
           <h2
-            className={`text-2xl font-bold mb-5 text-center ${
+            className={`text-xl sm:text-2xl font-bold mb-5 text-center ${
               isDarkMode ? "text-white" : "text-black"
             }`}
           >
@@ -116,7 +115,7 @@ const Register = () => {
 
           {!showOtpInput ? (
             <form
-              className="grid grid-cols-1 sm:grid-cols-2 gap-3"
+              className="grid grid-cols-1 gap-3"
               onSubmit={handleRegister}
             >
               {[
@@ -142,7 +141,7 @@ const Register = () => {
                   placeholder={field.placeholder}
                   value={formData[field.name]}
                   onChange={handleChange}
-                  className={`w-full px-3 py-2 rounded-md border focus:ring-2 focus:ring-lime-400 outline-none transition-colors duration-300 ${
+                  className={`w-full px-3 py-2 sm:py-3 rounded-md border focus:ring-2 focus:ring-lime-400 outline-none transition-colors duration-300 text-sm sm:text-base ${
                     isDarkMode
                       ? colors.input + " border-gray-600 placeholder-gray-400"
                       : "bg-white border-gray-300 text-black placeholder-gray-500"
@@ -154,7 +153,7 @@ const Register = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className={`col-span-1 sm:col-span-2 w-full py-2 rounded-md font-semibold shadow-md transition-colors duration-300 flex justify-center items-center gap-2 ${
+                className={`w-full py-2 sm:py-3 rounded-md font-semibold shadow-md transition-colors duration-300 flex justify-center items-center gap-2 text-sm sm:text-base ${
                   isDarkMode
                     ? colors.button
                     : "bg-gradient-to-r from-lime-400 via-lime-500 to-lime-600 text-black"
@@ -170,7 +169,7 @@ const Register = () => {
                 placeholder="Enter OTP"
                 value={otp}
                 onChange={(e) => setOtp(e.target.value)}
-                className={`w-full px-3 py-2 rounded-md border focus:ring-2 focus:ring-lime-400 outline-none transition-colors duration-300 ${
+                className={`w-full px-3 py-2 sm:py-3 rounded-md border focus:ring-2 focus:ring-lime-400 outline-none transition-colors duration-300 text-sm sm:text-base ${
                   isDarkMode
                     ? colors.input + " border-gray-600 placeholder-gray-400"
                     : "bg-white border-gray-300 text-black placeholder-gray-500"
@@ -180,7 +179,7 @@ const Register = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className={`w-full py-2 rounded-md font-semibold shadow-md transition-colors duration-300 flex justify-center items-center gap-2 ${
+                className={`w-full py-2 sm:py-3 rounded-md font-semibold shadow-md transition-colors duration-300 flex justify-center items-center gap-2 text-sm sm:text-base ${
                   isDarkMode
                     ? colors.button
                     : "bg-gradient-to-r from-lime-400 via-lime-500 to-lime-600 text-black"

@@ -13,29 +13,29 @@ const HomePage = () => {
 
   return (
     <div
-      className={`w-full min-h-screen flex flex-col justify-between relative overflow-hidden pt-20 ${colors.primary}`}
+      className={`w-full min-h-screen flex flex-col justify-between relative overflow-hidden pt-16 sm:pt-20 ${colors.primary}`}
     >
       {/* 🌈 Animated Gradient Background Blobs */}
       <motion.div
-        className="absolute -top-40 -left-40 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] bg-gradient-to-r from-lime-400/30 to-transparent rounded-full blur-3xl"
+        className="absolute -top-20 -left-20 sm:-top-40 sm:-left-40 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] bg-gradient-to-r from-lime-400/30 to-transparent rounded-full blur-3xl"
         animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 180, 270, 360] }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
       />
       <motion.div
-        className="absolute -bottom-40 -right-40 w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] bg-gradient-to-tr from-blue-500/20 to-transparent rounded-full blur-3xl"
+        className="absolute -bottom-20 -right-20 sm:-bottom-40 sm:-right-40 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] md:w-[500px] md:h-[500px] bg-gradient-to-tr from-blue-500/20 to-transparent rounded-full blur-3xl"
         animate={{ scale: [1.2, 1, 1.2], rotate: [360, 270, 180, 90, 0] }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
       />
 
       {/* ⚡ Main Content */}
-      <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center gap-8 max-w-7xl w-full py-12 lg:py-20 mx-auto">
+      <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center gap-4 sm:gap-8 max-w-7xl w-full py-6 sm:py-12 lg:py-20 mx-auto px-3 sm:px-6">
         {/* Left Content */}
-        <div className="flex-1 text-center lg:text-left lg:ml-12 px-4 sm:px-0">
+        <div className="flex-1 text-center lg:text-left lg:ml-12">
           <motion.h1
             initial={{ opacity: 0, y: -60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className={`text-3xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight ${titleGradient} bg-clip-text text-transparent`}
+            className={`text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight ${titleGradient} bg-clip-text text-transparent`}
           >
             Xeno FDE Project Store
           </motion.h1>
@@ -44,9 +44,9 @@ const HomePage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className={`mt-4 sm:mt-6 text-base sm:text-lg md:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed ${colors.text}`}
+            className={`mt-3 sm:mt-4 md:mt-6 text-sm xs:text-base sm:text-lg md:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed ${colors.text} px-2 sm:px-0`}
           >
-            <span className="hidden sm:inline">
+            <span className="hidden md:inline">
               Empowering enterprise retailers with seamless{" "}
               <span className="font-semibold text-lime-400">
                 Shopify Data Ingestion
@@ -57,7 +57,7 @@ const HomePage = () => {
               </span>
               . Your journey into next-gen e-commerce intelligence starts here.
             </span>
-            <span className="inline sm:hidden">
+            <span className="inline md:hidden">
               Empowering retailers with{" "}
               <span className="font-semibold text-lime-400">Shopify Data</span>{" "}
               &{" "}
@@ -72,12 +72,12 @@ const HomePage = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="mt-6 sm:mt-10 flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center lg:justify-start"
+            className="mt-4 sm:mt-6 md:mt-10 flex flex-col xs:flex-row gap-3 sm:gap-4 md:gap-5 justify-center lg:justify-start px-2 sm:px-0"
           >
             <motion.button
               whileHover={{ scale: 1.05, backgroundPosition: "200% center" }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 sm:px-8 py-2 sm:py-3 rounded sm:rounded-full font-semibold bg-gradient-to-r from-lime-400 via-green-400 to-lime-500 bg-[length:200%_200%] text-black shadow-md hover:shadow-xl transition-all w-full sm:w-auto"
+              className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-lg sm:rounded-full font-semibold bg-gradient-to-r from-lime-400 via-green-400 to-lime-500 bg-[length:200%_200%] text-black shadow-md hover:shadow-xl transition-all w-full xs:w-auto text-sm sm:text-base"
             >
               <Link to="/register" className="w-full h-full block text-center">
                 Get Started
@@ -87,7 +87,7 @@ const HomePage = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 sm:px-8 py-2 sm:py-3 rounded sm:rounded-full font-semibold border-2 border-lime-400 text-lime-400 hover:bg-lime-400 hover:text-black transition w-full sm:w-auto"
+              className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-lg sm:rounded-full font-semibold border-2 border-lime-400 text-lime-400 hover:bg-lime-400 hover:text-black transition w-full xs:w-auto text-sm sm:text-base"
             >
               <Link to="/learnMore" className="w-full h-full block text-center">
                 Learn More
@@ -101,16 +101,17 @@ const HomePage = () => {
           initial={{ opacity: 1, y: 0 }}
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="flex-1 flex justify-center mt-6 lg:mt-0"
+          className="flex-1 flex justify-center mt-4 sm:mt-6 lg:mt-0"
         >
           <img
             src={Hero}
             alt="HERO"
             className="
-    w-[220px]        
+    w-[180px]
+    xs:w-[200px]        
     sm:w-[220px]   
     md:w-[260px]   
-    lg:w-[300px]     
+    lg:w-[280px]     
     xl:w-[320px]    
     2xl:w-[360px]  
     h-auto           
@@ -125,25 +126,25 @@ const HomePage = () => {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 1.2 }}
-        className={`w-full bg-gray-900 dark:bg-gray-800 ${colors.primary} text-white py-10 px-6 sm:px-12 mt-auto`}
+        className={`w-full bg-gray-900 dark:bg-gray-800 ${colors.primary} text-white py-6 sm:py-10 px-3 sm:px-6 md:px-12 mt-auto`}
       >
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-6 sm:gap-8">
           {/* Logo / Brand */}
           <div className="flex-1">
-            <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-lime-400 to-green-400">
+            <h2 className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-lime-400 to-green-400">
               Xeno FDE Store
             </h2>
-            <p className={`mt-2 text-sm opacity-80 text-white"}`}>
+            <p className={`mt-1 sm:mt-2 text-xs sm:text-sm opacity-80 text-white"}`}>
               Empowering retailers with Shopify Data & actionable customer
               insights.
             </p>
           </div>
 
           {/* Navigation Links */}
-          <div className="flex-1 flex flex-col sm:flex-row justify-between mt-6 md:mt-0">
-            <div className="mb-4 sm:mb-0">
-              <h3 className="font-semibold mb-2">Company</h3>
-              <ul className="space-y-1 text-sm opacity-80">
+          <div className="flex-1 flex flex-col sm:flex-row justify-between mt-4 sm:mt-6 md:mt-0 gap-4 sm:gap-0">
+            <div className="mb-3 sm:mb-0">
+              <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">Company</h3>
+              <ul className="space-y-1 text-xs sm:text-sm opacity-80">
                 <li>
                   <a href="#" className="hover:text-lime-400 transition">
                     About Us
@@ -162,8 +163,8 @@ const HomePage = () => {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-2">Support</h3>
-              <ul className="space-y-1 text-sm opacity-80">
+              <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">Support</h3>
+              <ul className="space-y-1 text-xs sm:text-sm opacity-80">
                 <li>
                   <a href="#" className="hover:text-lime-400 transition">
                     Help Center
@@ -184,27 +185,27 @@ const HomePage = () => {
           </div>
 
           {/* Social Media / Newsletter */}
-          <div className="flex-1 flex flex-col items-start md:items-end mt-6 md:mt-0">
-            <h3 className="font-semibold mb-2">Follow Us</h3>
-            <div className="flex gap-3 mb-4">
-              <a href="#" className="hover:text-lime-400 transition">
+          <div className="flex-1 flex flex-col items-start md:items-end mt-4 sm:mt-6 md:mt-0">
+            <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">Follow Us</h3>
+            <div className="flex gap-2 sm:gap-3 mb-3 sm:mb-4 text-xs sm:text-sm">
+              <a href="#" className="hover:text-lime-400 transition whitespace-nowrap">
                 Twitter
               </a>
-              <a href="#" className="hover:text-lime-400 transition">
+              <a href="#" className="hover:text-lime-400 transition whitespace-nowrap">
                 LinkedIn
               </a>
-              <a href="#" className="hover:text-lime-400 transition">
+              <a href="#" className="hover:text-lime-400 transition whitespace-nowrap">
                 Instagram
               </a>
             </div>
-            <p className="text-sm opacity-80">Subscribe for updates:</p>
-            <form className="mt-2 flex w-full max-w-xs sm:max-w-sm">
+            <p className="text-xs sm:text-sm opacity-80">Subscribe for updates:</p>
+            <form className="mt-1 sm:mt-2 flex w-full max-w-xs">
               <input
                 type="email"
                 placeholder="Your email"
-                className="flex-1 px-3 py-2 rounded-l-md border border-gray-600 focus:outline-none w-full"
+                className="flex-1 px-2 sm:px-3 py-1 sm:py-2 rounded-l-md border border-gray-600 focus:outline-none w-full text-xs sm:text-sm text-black"
               />
-              <button className="px-4 py-2 rounded-r-md bg-lime-400 text-black font-semibold hover:bg-lime-500 transition">
+              <button className="px-2 sm:px-4 py-1 sm:py-2 rounded-r-md bg-lime-400 text-black font-semibold hover:bg-lime-500 transition text-xs sm:text-sm whitespace-nowrap">
                 Subscribe
               </button>
             </form>
@@ -212,7 +213,7 @@ const HomePage = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="mt-8 border-t border-gray-700 pt-4 text-center text-sm opacity-70">
+        <div className="mt-6 sm:mt-8 border-t border-gray-700 pt-3 sm:pt-4 text-center text-xs sm:text-sm opacity-70">
           <p className={`${"text-white"}`}>
             &copy; {new Date().getFullYear()} Xeno FDE Store. Built with ❤️ for
             the{" "}

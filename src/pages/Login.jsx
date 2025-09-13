@@ -48,10 +48,10 @@ const Login = () => {
 
   return (
     <section
-      className={`min-h-screen flex items-start sm:items-center justify-center px-0 sm:px-6 lg:px-8 pt-10 transition-colors duration-500 ${colors.primary}`}
+      className={`min-h-screen flex items-start sm:items-center justify-center px-3 sm:px-6 lg:px-8 pt-20 sm:pt-10 transition-colors duration-500 ${colors.primary}`}
     >
       <Toaster position="top-right" />
-      <div className="relative w-full sm:max-w-sm">
+      <div className="relative w-full max-w-sm">
         <div
           className={`sm:rounded-3xl sm:border p-4 sm:p-8 transition-colors duration-500 ${
             isDarkMode
@@ -60,14 +60,14 @@ const Login = () => {
           }`}
         >
           <h2
-            className={`text-2xl font-bold mb-4 text-center ${
+            className={`text-xl sm:text-2xl font-bold mb-4 text-center ${
               isDarkMode ? "text-white" : "text-black"
             }`}
           >
             Login
           </h2>
           <p
-            className={`text-center mb-6 transition-colors duration-500 ${
+            className={`text-center mb-6 transition-colors duration-500 text-sm sm:text-base ${
               isDarkMode ? colors.textMuted : "text-gray-500"
             }`}
           >
@@ -86,7 +86,7 @@ const Login = () => {
                 placeholder={field.placeholder}
                 value={formData[field.name]}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 rounded-md border focus:ring-2 focus:ring-lime-400 outline-none transition-colors duration-300 ${
+                className={`w-full px-3 sm:px-4 py-2 sm:py-3 rounded-md border focus:ring-2 focus:ring-lime-400 outline-none transition-colors duration-300 text-sm sm:text-base ${
                   isDarkMode
                     ? colors.input + " border-gray-600 placeholder-gray-400"
                     : "bg-transparent sm:bg-white border-gray-300 text-black placeholder-gray-500"
@@ -96,7 +96,7 @@ const Login = () => {
             ))}
 
             <div
-              className={`flex justify-end mb-4 items-center gap-1 text-sm transition-colors duration-300 ${
+              className={`flex justify-end mb-4 items-center gap-1 text-xs sm:text-sm transition-colors duration-300 ${
                 isDarkMode
                   ? "text-lime-300 hover:text-lime-400"
                   : "text-lime-500 hover:text-lime-600"
@@ -105,7 +105,7 @@ const Login = () => {
               <Link to="/forgot-password" className="flex items-center gap-1">
                 <span>Forgot password?</span>
                 <svg
-                  className="w-4 h-4"
+                  className="w-3 h-3 sm:w-4 sm:h-4"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
@@ -123,7 +123,7 @@ const Login = () => {
             <button
               type="submit"
               disabled={loading}
-              className={`w-full py-2 rounded-md font-semibold shadow-md transition-colors duration-300 flex justify-center items-center gap-2 ${
+              className={`w-full py-2 sm:py-3 rounded-md font-semibold shadow-md transition-colors duration-300 flex justify-center items-center gap-2 text-sm sm:text-base ${
                 isDarkMode
                   ? colors.button
                   : "bg-gradient-to-r from-lime-400 via-lime-500 to-lime-600 text-black"
@@ -134,7 +134,7 @@ const Login = () => {
           </form>
 
           <p
-            className={`mt-6 text-center text-sm transition-colors duration-300 ${
+            className={`mt-6 text-center text-xs sm:text-sm transition-colors duration-300 ${
               isDarkMode ? "text-gray-400" : "text-gray-500"
             }`}
           >

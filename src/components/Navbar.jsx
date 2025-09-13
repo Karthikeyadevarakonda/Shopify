@@ -36,22 +36,22 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full flex items-center justify-between px-6 py-4 sm:py-3 transition-all duration-500 z-50 ${navbarBg} ${shadowClass}`}
+        className={`fixed top-0 left-0 w-full flex items-center justify-between px-3 sm:px-6 py-3 sm:py-4 transition-all duration-500 z-50 ${navbarBg} ${shadowClass}`}
       >
         <Link
           to="/"
-          className={`flex items-center gap-2 text-2xl font-bold transition-colors duration-300 ${logoColor}`}
+          className={`flex items-center gap-1 sm:gap-2 text-lg sm:text-2xl font-bold transition-colors duration-300 ${logoColor}`}
         >
           <img
             src={Logo}
             alt="Shopify Logo"
-            className="h-9 w-9 sm:h-11 sm:w-11"
+            className="h-7 w-7 sm:h-9 sm:w-9 md:h-11 md:w-11"
           />
-          <span>Shopify</span>
+          <span className="hidden xs:inline sm:inline">Shopify</span>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-6">
+        <div className="hidden lg:flex gap-4 xl:gap-6">
           <Link
             to="/"
             className={`hover:underline transition-colors duration-300 ${linkColor}`}
@@ -86,26 +86,26 @@ const Navbar = () => {
           )}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           <ThemeToggle />
 
           {/* Hamburger */}
           <button
-            className="md:hidden flex flex-col justify-center items-center w-8 h-8 focus:outline-none"
+            className="lg:hidden flex flex-col justify-center items-center w-7 h-7 sm:w-8 sm:h-8 focus:outline-none"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <span
-              className={`h-0.5 w-6 transition-all duration-300 ${hamburgerColor} ${
+              className={`h-0.5 w-5 sm:w-6 transition-all duration-300 ${hamburgerColor} ${
                 menuOpen ? "rotate-45 translate-y-1.5" : ""
               }`}
             />
             <span
-              className={`h-0.5 w-6 my-1 transition-all duration-300 ${hamburgerColor} ${
+              className={`h-0.5 w-5 sm:w-6 my-1 transition-all duration-300 ${hamburgerColor} ${
                 menuOpen ? "opacity-0" : ""
               }`}
             />
             <span
-              className={`h-0.5 w-6 transition-all duration-300 ${hamburgerColor} ${
+              className={`h-0.5 w-5 sm:w-6 transition-all duration-300 ${hamburgerColor} ${
                 menuOpen ? "-rotate-45 -translate-y-1.5" : ""
               }`}
             />
@@ -131,22 +131,22 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.4 }}
-              className={`fixed top-0 right-0 h-full w-72 shadow-2xl flex flex-col ${colors.primary} ${colors.text} z-50`}
+              className={`fixed top-0 right-0 h-full w-64 sm:w-72 shadow-2xl flex flex-col ${colors.primary} ${colors.text} z-50`}
             >
-              <div className="flex items-center justify-between p-6 border-b border-white/20">
-                <span className="text-xl font-bold">Menu</span>
+              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-white/20">
+                <span className="text-lg sm:text-xl font-bold">Menu</span>
                 <button onClick={() => setMenuOpen(false)}>
-                  <FiX size={24} />
+                  <FiX size={20} className="sm:w-6 sm:h-6" />
                 </button>
               </div>
 
-              <div className="flex flex-col gap-6 p-6 text-lg">
+              <div className="flex flex-col gap-4 sm:gap-6 p-4 sm:p-6 text-base sm:text-lg">
                 <Link
                   to="/"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center gap-3 hover:text-lime-400"
+                  className="flex items-center gap-2 sm:gap-3 hover:text-lime-400"
                 >
-                  <FiHome /> Home
+                  <FiHome size={18} /> Home
                 </Link>
 
                 {!isAuthenticated && (
@@ -154,16 +154,16 @@ const Navbar = () => {
                     <Link
                       to="/login"
                       onClick={() => setMenuOpen(false)}
-                      className="flex items-center gap-3 hover:text-lime-400"
+                      className="flex items-center gap-2 sm:gap-3 hover:text-lime-400"
                     >
-                      <FiLogIn /> Login
+                      <FiLogIn size={18} /> Login
                     </Link>
                     <Link
                       to="/register"
                       onClick={() => setMenuOpen(false)}
-                      className="flex items-center gap-3 hover:text-lime-400"
+                      className="flex items-center gap-2 sm:gap-3 hover:text-lime-400"
                     >
-                      <FiUserPlus /> Register
+                      <FiUserPlus size={18} /> Register
                     </Link>
                   </>
                 )}
@@ -172,14 +172,14 @@ const Navbar = () => {
                   <Link
                     to="/mainLayout"
                     onClick={() => setMenuOpen(false)}
-                    className="flex items-center gap-3 hover:text-lime-400"
+                    className="flex items-center gap-2 sm:gap-3 hover:text-lime-400"
                   >
-                    <FiBarChart2 /> Dashboard
+                    <FiBarChart2 size={18} /> Dashboard
                   </Link>
                 )}
               </div>
 
-              <div className="mt-auto border-t border-white/20 p-6">
+              <div className="mt-auto border-t border-white/20 p-4 sm:p-6">
                 <ThemeToggle />
               </div>
             </motion.div>
