@@ -13,22 +13,14 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@heroicons/react": "^2.2.0",
-<<<<<<< HEAD
     "@mui/material": "^7.3.2",
     "@radix-ui/react-select": "^2.2.6",
-=======
-    "@radix-ui/react-select": "^2.2.6",
-    "@radix-ui/react-slot": "^1.2.3",
->>>>>>> 8640e67cb85e86093f3ba3f8645fc629fd511422
     "@tailwindcss/vite": "^4.1.13",
     "axios": "^1.12.0",
     "chart.js": "^4.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-<<<<<<< HEAD
     "date-fns": "^4.1.0",
-=======
->>>>>>> 8640e67cb85e86093f3ba3f8645fc629fd511422
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.544.0",
     "react": "^19.1.1",
